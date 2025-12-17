@@ -4,7 +4,8 @@ const mongoose = require("mongoose")
 const formSchema = new mongoose.Schema({
 
     userId:{
-        type:String,
+        type: mongoose.Schema.Types.ObjectId, // store ObjectId of the User
+        ref: "user",
         required:true
     },
 
@@ -12,7 +13,7 @@ const formSchema = new mongoose.Schema({
         type:String,
         required:true,
         unique:true
-    },
+       },
 
     JobDescription: {
         type:String,
@@ -21,16 +22,17 @@ const formSchema = new mongoose.Schema({
 
     role:{
         type:String,
-        require:true
+        required:true
     },
 
     status:{
         type:String,
-        enum:["applied","interview","rejected"]
+        enum:["applied","interview","rejected"],
+        default:"applied"
     },
     appliedDate:{
-        type:Number,
-        require:true
+        type:Date,
+        required:true
     }
 
 })

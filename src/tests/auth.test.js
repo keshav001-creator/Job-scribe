@@ -50,7 +50,7 @@ describe('POST /api/register', () => {
     await request(app).post('/api/register').send(payload)
     const res = await request(app).post('/api/register').send(payload)
 
-    expect(res.status).toBe(200)
+    expect(res.status).toBe(409)
     expect(res.body.message).toBe('User already exists')
   })
 
