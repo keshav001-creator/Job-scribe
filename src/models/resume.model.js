@@ -10,14 +10,9 @@ const resumeSchema = new mongoose.Schema({
     content:{
         type:String,
         required:true
-    },
-    createdAt:{
-        type:Number,
-        required:true
     }
-    
 
-})
+},{timestamps:true})
 
 
 const resumeModel=mongoose.model("resumes",resumeSchema)
