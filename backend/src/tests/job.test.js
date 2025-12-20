@@ -51,7 +51,7 @@ describe('Job APIs', () => {
         company: 'Acme Corp',
         JobDescription: 'A'.repeat(100),
         role: 'Engineer',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-01-01'
       }
 
@@ -70,7 +70,7 @@ describe('Job APIs', () => {
         company: 'Unique Co',
         JobDescription: 'B'.repeat(100),
         role: 'Developer',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-01-02'
       }
 
@@ -95,7 +95,7 @@ describe('Job APIs', () => {
         company: 'NoAuth Co',
         JobDescription: 'C'.repeat(100),
         role: 'Dev',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-01-03'
       }
 
@@ -110,7 +110,7 @@ describe('Job APIs', () => {
         company: 'BadToken Co',
         JobDescription: 'D'.repeat(100),
         role: 'Dev',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-01-04'
       }
 
@@ -129,7 +129,7 @@ describe('Job APIs', () => {
         company: 'G1',
         JobDescription: 'E'.repeat(100),
         role: 'Role1',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-02-01'
       }
       const payload2 = {
@@ -166,7 +166,7 @@ describe('Job APIs', () => {
         company: 'GBI Co',
         JobDescription: 'G'.repeat(100),
         role: 'Engineer',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-03-01'
       }
 
@@ -210,7 +210,7 @@ describe('Job APIs', () => {
         company: 'PatchCo',
         JobDescription: 'H'.repeat(100),
         role: 'Dev',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-04-01'
       }
 
@@ -254,7 +254,7 @@ describe('Job APIs', () => {
         company: 'DelCo',
         JobDescription: 'I'.repeat(100),
         role: 'Engineer',
-        status: 'applied',
+        status: 'Applied',
         appliedDate: '2025-05-01'
       }
 

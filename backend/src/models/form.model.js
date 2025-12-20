@@ -27,7 +27,7 @@ const formSchema = new mongoose.Schema({
 
     status:{
         type:String,
-        enum:["applied","interview","rejected"],
+        enum:["Applied","Interview","Rejected"],
         default:"applied"
     },
     appliedDate:{

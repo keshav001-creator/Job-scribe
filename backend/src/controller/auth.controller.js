@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 const userModel = require("../models/user.model")
+const redis = require("../db/redis")
 
 async function registerUser(req, res) {
 
@@ -101,5 +102,76 @@ async function loginUser(req, res) {
 
 }
 
-module.exports = { registerUser, loginUser }
+async function getMe(req, res) {
+    try {
+        const token = req.cookies.token
+
+        if (!token) {
+            return res.status(400).json({
+                authenticated: false
+            })
+        }
+
+        const decode = jwt.verify(token, process.env.JWT_SECRET_KEY)
+
+
+        return res.status(200).json({
+            authenticated: true,
+            userId: decode.id
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            message: "Error while Verifying",
+            error: err.message
+        })
+    }
+
+
+}
+
+async function logoutUser(req, res) {
+
+    try {
+        const token = req.cookies.token
+
+        if (token) {
+            await redis.set(`blacklist:${token}`, "true", "EX", 24 * 60 * 60)
+        }
+
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: true
+        })
+
+        return res.status(200).json({
+            message: "User Logged Out successfully"
+        })
+    } catch (err) {
+        return res.status(500).json({
+            message: "Error while logging out",
+            error: err.message
+        })
+    }
+
+
+}
+
+async function getUser(req, res) {
+
+    try {
+        const User = req.user
+        return res.status(200).json({
+            User
+        })
+    } catch (err) {
+
+        return res.status(500).json({
+            message: "Error while logging out",
+            error: err.message
+        })
+
+    }
+}
+module.exports = { registerUser, loginUser, getMe, logoutUser, getUser }
 

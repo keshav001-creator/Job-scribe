@@ -75,7 +75,7 @@ const formValidator = [
 
 
     body("status")
-        .isIn(["applied", "interview", "rejected"])
+        .isIn(["Applied", "Interview", "Rejected"])
         .withMessage("Status must be applied, interview, or rejected")
         .notEmpty().withMessage("status is required")
         .trim(),
@@ -111,7 +111,7 @@ const formUpdateValidator = [
 
     body("status")
         .optional()
-        .isIn(["applied", "interview", "rejected"])
+        .isIn(["Applied", "Interview", "Rejected"])
         .withMessage("Status must be applied, interview, or rejected")
         .notEmpty().withMessage("status is required")
         .trim(),
