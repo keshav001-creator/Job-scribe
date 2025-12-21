@@ -2,28 +2,24 @@ import {useNavigate} from "react-router-dom"
 import {useState} from "react"
 import axios from "../api/axios"
 
-function JobRow(props) {
+function JobRow({Job,onDelete,onUpdate}) {
 
-    const{company, JobDescription, role, status, appliedDate }=props.Job
+    const{company, JobDescription, role, status, appliedDate }=Job
     const [open,setopen]=useState(false)
     const navigate=useNavigate()
 
     const deleteHandler=async()=>{
 
       try{
-        const res=await axios.delete(`/api/job/${props.Job._id}`,{withCredentials:true})
+        const res=await axios.delete(`http://localhost:3000/api/job/${Job._id}`,{withCredentials:true})
         console.log(res)
-        props.onDelete(props.Job._id)
+        onDelete(Job._id)
 
       }catch(err){
         console.log(err)
       }
 
     }
-
-    
-   
-
 
   return (
     <div>
@@ -41,10 +37,10 @@ function JobRow(props) {
 
         {open && (
              <div>
-                <button onClick={(e)=>navigate("/page/optimizeResume")}>Optmize Resume</button>
-                <button onClick={(e)=>navigate(`/page/jobDetails/${props.Job._id}`)}>View Job</button>
+                <button onClick={(e)=>navigate(`/page/optimizeResume/${Job._id}`)}>Optmize Resume</button>
+                <button onClick={(e)=>navigate(`/page/jobDetails/${Job._id}`)}>View Job</button>
                 <button onClick={deleteHandler}>Delete Job</button>
-                <button onClick={(e)=>navigate("/page/jobUpdate")}>Update Job</button>
+                <button onClick={(e)=>navigate(`/page/jobUpdate/${Job._id}`)}>Update Job</button>
              </div>
         )}
     </div>

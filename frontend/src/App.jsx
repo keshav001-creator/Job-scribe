@@ -1,10 +1,13 @@
 import MainRoutes from "./routes/mainroutes"
+import { JobsProvider } from "./context/JobContext"
 
 const App = () => {
   return (
-    <div>
-      <MainRoutes/>
-    </div>
+
+    <JobsProvider>
+      <MainRoutes />
+    </JobsProvider>
+
   )
 }
 

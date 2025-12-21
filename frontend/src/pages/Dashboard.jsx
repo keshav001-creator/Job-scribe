@@ -1,53 +1,66 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
-import axios from "../api/axios"
+import { useContext, useState } from "react"
+import { JobsContext } from "../context/JobContext"
 import JobRow from "../components/JobRow"
-
+import axios from "../api/axios"
 
 const Dashboard = () => {
 
-
   const navigate = useNavigate()
-  const [jobs,setjobs]=useState([])
+  const [file, setFile] = useState(null)
+  const [resume, setResume] = useState(null)
+  const { jobs, deleteJob, updateJob, clearJobs } = useContext(JobsContext)
 
-  const profile = () => { }
-
-  
-  const handleDeleteJob=(jobId)=>{
-    setjobs(prev=>
-    prev.filter(job=> jobId !== job._id)
-    )
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0])
   }
 
- const renderJobs=jobs.map((jobObj)=>(
-  <JobRow key={jobObj._id} Job={jobObj} onDelete={handleDeleteJob} />
- ))
+  const handleUpload = async () => {
 
-  useEffect(() => {
+    if (!file) return
 
-    const GetJobs = async () => {
+    const formData = new FormData()
+    formData.append("resume", file)
 
-      try {
-        const res = await axios.get("http://localhost:3000/api/job", { withCredentials: true })
-        console.log(res.data.jobs)
-         setjobs(res.data.jobs)
+    try {
 
-      } catch (err) {
-        console.log("error:",err)
-      }
+      const res = await axios.post("http://localhost:3000/api/upload", formData, { withCredentials: true })
+      console.log(res)
+      setResume(res.data)
+      alert("Resume Uploaded Successfully")
+
+    } catch (err) {
+      console.log(err)
     }
 
-    GetJobs()
-  }, [])
+  }
 
+  const logOutHandler = async () => {
+
+    const confirmed = window.confirm("Do you want to logout?");
+    if (!confirmed) return;
+
+    try {
+      const res = await axios.post("http://localhost:3000/api/logout", {}, { withCredentials: true })
+      navigate("/page/home")
+      clearJobs()
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <div>
       <div>
         <h1>Hello,</h1>
         <div>
-          <button onClick={profile}>Logo</button>
+          <button >Logo</button>
         </div>
+      </div>
+
+      <div className="logout">
+        <button onClick={logOutHandler}>Log Out</button>
       </div>
 
 
@@ -55,11 +68,29 @@ const Dashboard = () => {
       <div className="AddJob">
         <button onClick={() => { navigate("/page/createJob") }}>+Add Job</button>
       </div>
-      {/* <div className="uploadResume">
-        <button onClick={()=>{navigate("/page/createJob")}}>+Upload Resume</button>
-      </div> */}
+
+      <div className="ResumeUpload">
+
+
+        <label>
+          Upload Resume
+          <input type="file" accept="application/pdf" onChange={handleFileChange} />
+        </label>
+        <button onClick={handleUpload}>Upload</button>
+      </div>
+
+
       <div>
-        {jobs.length>0 ? renderJobs : "No Jobs Are there!"}
+        {jobs.length > 0 ?
+
+          (jobs.map(job =>
+            <JobRow
+              key={job._id}
+              Job={job}
+              onDelete={deleteJob}
+              onUpdate={updateJob}
+            />
+          )) : ("No Jobs Are there!")}
       </div>
 
 

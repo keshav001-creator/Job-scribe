@@ -17,10 +17,9 @@ const Mainroutes = () => {
         <Route path="/page/register" element={<Register/>}></Route>
         <Route path="/page/dashboard" element={<Dashboard/>}></Route>
         <Route path="/page/createJob" element={<CreateJob/>}></Route>
-        <Route path="/page/optimizeResume" element={<OptmizedResume/>}></Route>
+        <Route path="/page/optimizeResume/:id" element={<OptmizedResume/>}></Route>
         <Route path="/page/jobDetails/:id" element={<JobDetails/>}></Route>
-        <Route path="/page/jobUpdate" element={<UpdateJob/>}></Route>
-        {/* <Route path="/page/job/:id" element={}></Route> */}
+        <Route path="/page/jobUpdate/:id" element={<UpdateJob/>}></Route>
     </Routes>
   )
 }

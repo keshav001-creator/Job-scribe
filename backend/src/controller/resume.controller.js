@@ -27,10 +27,11 @@ async function uploadResume(req, res) {
             })
         }
 
-        const resume = await resumeModel.findOneAndUpdate({
-            userId: req.user.id,
-            content: extractedText
-        }, { new: true, upsert: true });
+        const resume = await resumeModel.findOneAndUpdate(
+            {userId: req.user.id},
+            {content: extractedText},
+            { new: true, upsert: true }
+        );
 
         return res.status(200).json({ message: "resume uploaded successfully", resume })
 
@@ -93,19 +94,32 @@ async function optimizeResume(req, res) {
         }
 
         const prompt = `
-You are an expert ATS-friendly resume writer.
+        You are an expert ATS-friendly resume reviewer and resume optimization specialist.
 
-here is a candidate's base resume:${baseResume.content},
-here is the job description:${job.JobDescription}
+Below is a candidate's BASE RESUME:
+${baseResume.content}
 
-your task is to:
-- Optimize the resume for this job role: ${job.role}
-- Improve keyword matching
-- Keep experience realistic
-- Do not add fake skills or experience
-- Keep professional formatting
-- Return only the the things which should be changed in form of bullet points.
-Important- Each bullet point should appear in next line 
+Below is the JOB DESCRIPTION for which the candidate is applying:
+Company: ${job.company}
+Role: ${job.role}
+Job Description:
+${job.JobDescription}
+
+Your task is to:
+- Identify mistakes, gaps, or weak areas in the base resume
+- Suggest clear, practical improvements to better match the job description
+- Optimize the resume for ATS keyword matching
+- Improve clarity, impact, and relevance for the given role
+- Do NOT add fake skills, experience, or achievements
+- Do NOT rewrite the entire resume
+
+Output rules:
+- Return ONLY the suggested changes
+- Present suggestions under clear headings (e.g., "Skills", "Experience", "Summary", "Projects", etc.)
+- Use concise points
+- Each point should describe WHAT to change and HOW to improve it
+- Keep suggestions easy to understand and actionable
+- Do NOT include explanations, introductions, or conclusions
 `
 
         const OptimizedResume = await generateResponse(prompt)

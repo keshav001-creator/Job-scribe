@@ -4,8 +4,10 @@ const mongoose = require("mongoose")
 const resumeSchema = new mongoose.Schema({
 
     userId:{
-        type:String,
-        required:true
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "users",
+        required:true,
+        unique: true
     },
     content:{
         type:String,
