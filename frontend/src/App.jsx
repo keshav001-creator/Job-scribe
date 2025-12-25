@@ -1,4 +1,4 @@
-import MainRoutes from "./routes/mainroutes"
+import MainRoutes from "./routes/MainRoutes"
 import { JobsProvider } from "./context/JobContext"
 import "./index.css";
 

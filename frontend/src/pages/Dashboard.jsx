@@ -21,6 +21,7 @@ const Dashboard = () => {
   useEffect(() => {
     fetchUser()
     fetchJobs()
+    fetchResume()
   }, [])
 
 
@@ -37,9 +38,9 @@ const Dashboard = () => {
 
     try {
 
-      const res = await axios.post("http://localhost:3000/api/upload", formData, { withCredentials: true })
-      console.log(res)
-      setResume(res.data)
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, formData, { withCredentials: true })
+      // console.log(res.data.resume.filename)
+      setResume(res.data.resume.filename)
       alert("Resume Uploaded Successfully")
 
     } catch (err) {
@@ -54,9 +55,21 @@ const Dashboard = () => {
     if (!confirmed) return;
 
     try {
-      await axios.post("http://localhost:3000/api/logout", {}, { withCredentials: true })
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/logout`, {}, { withCredentials: true })
       clearJobs()
       navigate("/")
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const fetchResume = async () => {
+
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/resume`, { withCredentials: true })
+      console.log("resume:", res)
+      setResume(res.data.resume.filename)
 
     } catch (err) {
       console.log(err)
@@ -148,6 +161,16 @@ const Dashboard = () => {
                 >
                   Change
                 </button>
+              </div>
+            ) : (
+              <p></p>
+            )}
+
+            {/* resume display */}
+
+            {resume ? (
+              <div className="mt-2 items-center text-red-500 text-sm lg:text-md">
+                {`Uploaded- ${resume}`}
               </div>
             ) : (
               <p className="mt-2 text-xs text-gray-400">

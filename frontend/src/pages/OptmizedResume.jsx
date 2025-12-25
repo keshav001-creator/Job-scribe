@@ -15,7 +15,7 @@ const OptmizedResume = () => {
     const fetchSuggestions = async () => {
       try {
 
-        const res = await axios.post(`http://localhost:3000/api/resume/optimize/${id}`, {}, { withCredentials: true })
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/resume/optimize/${id}`, {}, { withCredentials: true })
         // console.log(res.data.OptimizedResume)
         setSuggestions(res.data.OptimizedResume)
 

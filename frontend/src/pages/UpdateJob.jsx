@@ -38,7 +38,7 @@ const UpdateJob = () => {
     e.preventDefault()
 
     try {
-      const res = await axios.patch(`http://localhost:3000/api/job/${id}`, form, { withCredentials: true })
+      const res = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/job/${id}`, form, { withCredentials: true })
       // console.log(res.data.updateJob)
       updateJob(res.data.updateJob)
       navigate("/page/dashboard")

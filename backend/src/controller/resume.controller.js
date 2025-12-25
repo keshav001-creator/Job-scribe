@@ -8,6 +8,7 @@ async function uploadResume(req, res) {
 
     try {
 
+
         if (!req.file) {
             return res.status(400).json({ message: "Resume file is required" })
         }
@@ -28,8 +29,11 @@ async function uploadResume(req, res) {
         }
 
         const resume = await resumeModel.findOneAndUpdate(
-            {userId: req.user.id},
-            {content: extractedText},
+            { userId: req.user.id },
+            {
+                content: extractedText,
+                filename: req.file.originalname
+            },
             { new: true, upsert: true }
         );
 
@@ -53,6 +57,7 @@ async function getResume(req, res) {
         if (!resume) {
             return res.status(404).json({ message: "Resume not found, upload resume" })
         }
+
 
         return res.status(200).json({
             message: "Resume fetched successfully",
@@ -131,8 +136,8 @@ Output rules:
 
     } catch (err) {
         return res.status(500).json({
-            message:"error while optimizing resume",
-            error:err.message
+            message: "error while optimizing resume",
+            error: err.message
         })
     }
 
@@ -140,4 +145,4 @@ Output rules:
 
 
 }
-module.exports = { uploadResume, getResume, optimizeResume}
+module.exports = { uploadResume, getResume, optimizeResume }

@@ -16,7 +16,7 @@ export const JobsProvider = ({ children }) => {
 
         try {
             setJobsLoading(true)
-            const res = await axios.get("http://localhost:3000/api/job", { withCredentials: true })
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/job`, { withCredentials: true })
             const jobsWithFormattedDate = (res.data.jobs || []).map(job => ({
                 ...job,
                 appliedDate: new Date(job.appliedDate).toISOString().split("T")[0]
@@ -36,7 +36,7 @@ export const JobsProvider = ({ children }) => {
 
         try {
 
-            const res = await axios.get("http://localhost:3000/api/user", { withCredentials: true })
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`, { withCredentials: true })
             //    console.log(res.data.User.fullName.firstName)
             setUser(res.data.User.fullName.firstName)
 

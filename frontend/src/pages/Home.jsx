@@ -15,7 +15,7 @@ const Home = () => {
 
       try {
 
-        const res = await axios.get("http://localhost:3000/api/me", { withCredentials: true })
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/me`, { withCredentials: true })
 
         if (res.data.authenticated) {
           navigate("/page/dashboard")

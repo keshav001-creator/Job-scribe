@@ -12,6 +12,9 @@ const resumeSchema = new mongoose.Schema({
     content:{
         type:String,
         required:true
+    },
+    filename:{
+        type:String
     }
 
 },{timestamps:true})
