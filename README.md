@@ -1,20 +1,25 @@
-<h1 align="left">JobScribe</h1>
+<h1 align="center">🚀 JobScribe</h1>
 
-###
+<p align="center">
+A MERN application for tracking jobs and optimizing resumes with AI suggestions for individual job roles.<br>
+Fully responsive for Mobile and Desktop
+</p>
 
-<br clear="both">
+<h2>🌟 Features Included</h2>
+<ul>
+  <li>JWT authentication, cookies for storing tokens</li>
+  <li>Redis for blacklisting tokens</li>
+  <li>Error Handling</li>
+  <li>Input Validations</li>
+  <li>AI-based suggestions using Gemini</li>
+</ul>
 
-<h3 align="left">A MERN application for tracking jobs and optimizing resumes with help of AI suggestions for individual job roles.<br>    Responsive for Mobile and Desktop</h3>
-
-###
-
-<h3 align="left">Features Included-<br>    -JWT auth,cookies for storing tokens<br>    -Redis for Blacklisting tokens<br>    -Error Handling <br>    -Validations for input fields<br>    -AI based suggestions using Gemini</h3>
-
-###
-
-<h3 align="left">Technologies Used-    <br>    Frontend- React, Tailwind CSS <br>    Backend-Node.js, Express, Gemini API, Redis<br>    Database- MongoDB</h3>
-
-###
+<h2>🛠 Technologies Used</h2>
+<ul>
+  <li>Frontend: React, Tailwind CSS</li>
+  <li>Backend: Node.js, Express, Gemini API, Redis</li>
+  <li>Database: MongoDB</li>
+</ul>
 
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
@@ -23,8 +28,6 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="nodejs logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" height="40" alt="jest logo"  />
-  <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="40" alt="tailwindcss logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="mongodb logo"  />
@@ -32,24 +35,34 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" height="40" alt="express logo"  />
 </div>
 
-###
+<h2>👤 User Actions</h2>
+<ul>
+  <li>Register and Log in</li>
+  <li>Create, Update, Delete jobs</li>
+  <li>Upload PDF resumes</li>
+  <li>Get AI suggestions from Gemini Model</li>
+  <li>Track jobs on dashboard</li>
+  <li>See status of interviews, total jobs, and applied jobs</li>
+</ul>
 
-<h3 align="left">User can-<br>    -Register and Log in <br>    -Create,Update, Delete job<br>    -Upload Your Resume(PDF only)<br>    -Get suggestions from the Gemini AI Model<br>    -Track Jobs on dashboard which User have applied<br>    -See the status of interviews, total jobs, and applied jobs</h3>
+<h2>📂 Folder Structure</h2>
+<pre>
+backend/
+frontend/
+</pre>
 
-###
+<h2>⚙️ Environment Variables</h2>
+<pre>
+MONGOdb_URL=your_mongodb_connection_string
+REDIS_HOST=your_redis_host
+REDIS_PASSWORD=your_redis_password
+REDIS_PORT=your_redis_port
+JWT_SECRET_KEY=your_jwt_secret
+GEMINI_API_KEY=your_gemini_api_key
+</pre>
 
-<p align="left">Folder Structure-<br>    -backend <br>    -frontend</p>
+<h2>🖼 Dashboard Screenshots</h2>
+<p>(/screenshots/dashboard-desktop.png)</p>
 
-###
-
-<p align="left">Environment Variables-<br>    create a ".env" file in the "/backend" folder and add the following:<br>    <br>    MONGOdb_URL=your_mongodb_connection_string<br>    REDIS_HOST=your_redis_host<br>    REDIS_PASSWORD=your_redis_password<br>    REDIS_PORT=your_redis_port<br>    JWT_SECRET_KEY=your_jwt_secret<br>    GEMINI_API_KEY=your_gemini_api_key</p>
-
-###
-
-<h2 align="left">Dashboard Screenshots:(/screenshots/dashboard-desktop.png)</h2>
-
-###
-
-<h2 align="left">Live Demo Link:[https://job-scribe-y68v.onrender.com]</h2>
-
-###
+<h2>🌐 Live Demo</h2>
+<p><a href="https://job-scribe-y68v.onrender.com">Check Deployed App</a></p>
