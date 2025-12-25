@@ -1,4 +1,4 @@
-import MainRoutes from "./routes/MainRoutes"
+import Mainroutes from "./routes/Mainroutes"
 import { JobsProvider } from "./context/JobContext"
 import "./index.css";
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
 
     <JobsProvider>
-      <MainRoutes />
+      <Mainroutes />
     </JobsProvider>
 
   )
