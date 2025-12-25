@@ -3,7 +3,7 @@
 <p align="center">
 A MERN application for tracking jobs and optimizing resumes with AI suggestions for individual job roles.<br>
 Fully responsive for Mobile and Desktop
-</p>
+</p
 
 <h2>🌟 Features Included</h2>
 <ul>
@@ -12,6 +12,17 @@ Fully responsive for Mobile and Desktop
   <li>Error Handling</li>
   <li>Input Validations</li>
   <li>AI-based suggestions using Gemini</li>
+   <li>pdf-parse for extracting text from pdf</li>
+</ul>
+
+<h2>👤 User Actions</h2>
+<ul>
+  <li>Register and Log in</li>
+  <li>Create, Update, Delete jobs</li>
+  <li>Upload PDF resumes</li>
+  <li>Get AI suggestions from Gemini Model</li>
+  <li>Track jobs on dashboard</li>
+  <li>See status of interviews, total jobs, and applied jobs</li>
 </ul>
 
 <h2>🛠 Technologies Used</h2>
@@ -35,16 +46,6 @@ Fully responsive for Mobile and Desktop
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" height="40" alt="express logo"  />
 </div>
 
-<h2>👤 User Actions</h2>
-<ul>
-  <li>Register and Log in</li>
-  <li>Create, Update, Delete jobs</li>
-  <li>Upload PDF resumes</li>
-  <li>Get AI suggestions from Gemini Model</li>
-  <li>Track jobs on dashboard</li>
-  <li>See status of interviews, total jobs, and applied jobs</li>
-</ul>
-
 <h2>📂 Folder Structure</h2>
 <pre>
 backend/
@@ -62,7 +63,8 @@ GEMINI_API_KEY=your_gemini_api_key
 </pre>
 
 <h2>🖼 Dashboard Screenshots</h2>
-<p>(/screenshots/dashboard-desktop.png)</p>
+<img src="frontend/screenshots/dashboard-desktop.png" alt="Dashboard" width="700">
+
 
 <h2>🌐 Live Demo</h2>
 <p><a href="https://job-scribe-y68v.onrender.com">Check Deployed App</a></p>
