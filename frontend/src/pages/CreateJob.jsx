@@ -25,8 +25,7 @@ const CreateJob = () => {
     setIsSubmitting(true)
 
     try {
-      const res = await axios.post(
-        "/api/job",
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/job`,
         {
           company,
           role,
@@ -58,7 +57,7 @@ const CreateJob = () => {
   }
 
   return (
-    <div className="bg-red-50 p-5 lg:p-10 lg:bg-gradient-to-b from-red-50 via-red-100 to-red-200">
+    <div className="bg-red-50 min-h-full p-5 lg:p-10 ">
       <h1 className="text-center text-red-600 text-2xl font-bold lg:text-3xl">
         Track Your Job
       </h1>

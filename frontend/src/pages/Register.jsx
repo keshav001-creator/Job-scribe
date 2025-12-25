@@ -46,7 +46,7 @@ const Register = () => {
 
 
   return (
-    <div className="min-h-screen lg:flex items-center justify-center  lg:bg-gradient-to-b from-white to-red-50">
+    <div className="min-h-full lg:flex items-center justify-center  lg:bg-gradient-to-b from-white to-red-50">
       <div className="Auth w-full bg-white flex flex-col lg:flex-row lg:max-w-5xl lg:rounded-2xl lg:shadow-xl lg:w-2/3">
 
         {/* left */}

@@ -14,6 +14,7 @@ const Dashboard = () => {
   const navigate = useNavigate()
   const [File, setFile] = useState()
   const [resume, setResume] = useState(null)
+  const [LogoutError,setLogoutError]=useState("")
   const { jobs, deleteJob, updateJob, clearJobs, jobsLoading, User, fetchUser, fetchJobs } = useContext(JobsContext)
 
 
@@ -44,7 +45,11 @@ const Dashboard = () => {
       alert("Resume Uploaded Successfully")
 
     } catch (err) {
-      console.log(err)
+      if(err.response?.data?.message){
+        setLogoutError(err.response.data.message)
+      }else{
+        console.log("Failed logout. Try again later ")
+      }
     }
 
   }
@@ -68,7 +73,6 @@ const Dashboard = () => {
 
     try {
       const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/resume`, { withCredentials: true })
-      console.log("resume:", res)
       setResume(res.data.resume.filename)
 
     } catch (err) {
@@ -106,6 +110,11 @@ const Dashboard = () => {
           Logout <span className="ml-1"></span><FaArrowRight className="hidden lg:block text-xs" />
         </button>
       </div>
+
+      {LogoutError && (
+        <p className="text-red-500 text-sm text-center">{LogoutError}</p>
+      )}
+      
 
 
 
@@ -170,7 +179,7 @@ const Dashboard = () => {
 
             {resume ? (
               <div className="mt-2 items-center text-red-500 text-sm lg:text-md">
-                {`Uploaded- ${resume}`}
+                <span className="text-red-500 font-bold">Uploaded- </span>{resume}
               </div>
             ) : (
               <p className="mt-2 text-xs text-gray-400">
@@ -277,7 +286,7 @@ const Dashboard = () => {
               </div>
             </>
           ) : (
-            <p className="text-red-400 text-center mt-20 lg:text-xl">
+            <p className="text-red-400 text-center mt-20 lg:text-2xl">
               No Jobs are There <br></br>
               Add Jobs to track their status.<br></br>
 

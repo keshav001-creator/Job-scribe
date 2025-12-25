@@ -34,7 +34,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className=" min-h-screen p-4 flex flex-col bg-gradient-to-b from-white to-red-50 lg:px-16 py-10">
+    <div className=" min-h-full p-4 flex flex-col bg-gradient-to-b from-white to-red-50 lg:px-16 py-10">
 
       {/* nav bar */}
       <nav className="text-xl text-red-500 font-bold lg:text-3xl">JobScribe</nav>
@@ -87,9 +87,9 @@ const Home = () => {
 
         <div className="hidden lg:flex lg:w-1/2 justify-center">
           <img
-            src="/hero-dashboard.png"
+            src="/hero-dashboard.svg"
             alt="JobScribe Dashboard"
-            className="w-full max-w-md rounded-xl shadow-lg"
+            className="w-full max-w-md "
           />
         </div>
 

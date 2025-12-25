@@ -114,6 +114,17 @@ async function getMe(req, res) {
             })
         }
 
+        const isBlackListed=await redis.get(`blacklist:${token}`)
+        
+        if(isBlackListed){
+            return res.status(401).json(
+                {
+                    authenticated:false,
+                    message:"Token is blacklisted"
+                }
+            )
+        }
+
         const decode = jwt.verify(token, process.env.JWT_SECRET_KEY)
 
 

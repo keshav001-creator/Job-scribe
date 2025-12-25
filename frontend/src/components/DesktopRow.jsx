@@ -12,7 +12,7 @@ const DesktopRow = ({ Job,onDelete }) => {
   const deleteHandler = async () => {
 
     try {
-      const res = await axios.delete(`http://localhost:3000/api/job/${Job._id}`, { withCredentials: true })
+      const res = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/job/${Job._id}`, { withCredentials: true })
       // console.log(res)
       onDelete(Job._id)
 

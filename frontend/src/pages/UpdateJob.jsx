@@ -63,7 +63,7 @@ const UpdateJob = () => {
 
 
   return (
-    <div className='p-7 bg-red-50 lg:bg-gradient-to-b from-red-50 via-red-100 to-red-200 '>
+    <div className='min-h-full p-7 bg-red-50 lg:bg-gradient-to-b from-red-50 via-red-100 to-red-200 '>
       <h1 className='text-center text-xl font-bold lg:text-3xl text-red-600'>Update Your Job</h1>
       <form className='mt-5 flex flex-col gap-5 lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-10 lg:w-1/2 mx-auto'
         onSubmit={handleSubmit}>
