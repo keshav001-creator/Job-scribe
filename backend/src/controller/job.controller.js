@@ -13,7 +13,7 @@ async function createJob(req, res) {
 
         if (isApplied) {
             return res.status(409).json({
-                message: "already created the job with this company"
+                message: "Already created the job with this company"
             })
         }
 

@@ -69,14 +69,14 @@ async function loginUser(req, res) {
 
         if (!User) {
             return res.status(400).json({
-                message: "user is not registered"
+                message: "User is not registered"
             })
         }
 
         const isMatch = await bcrypt.compare(userPassword, User.password)
 
         if (!isMatch) {
-            return res.status(400).json({ message: "Password is invalid" })
+            return res.status(400).json({ message: "Invalid Password" })
         }
 
         const token = jwt.sign({
