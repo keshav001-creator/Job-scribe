@@ -48,8 +48,74 @@ Fully responsive for Mobile and Desktop
 
 <h2>📂 Folder Structure</h2>
 <pre>
-backend/
-frontend/
+
+```id="9k2m1x"
+JobScribe/
+│── backend/
+│   │── node_modules/
+│   │── src/
+│   │   ├── controller/
+│   │   │   ├── auth.controller.js
+│   │   │   ├── job.controller.js
+│   │   │   └── resume.controller.js
+│   │   │
+│   │   ├── db/
+│   │   │   ├── db.js
+│   │   │   └── redis.js
+│   │   │
+│   │   ├── middlewares/
+│   │   │   ├── auth.middleware.js
+│   │   │   └── validator.middleware.js
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user.model.js
+│   │   │   ├── form.model.js
+│   │   │   └── resume.model.js
+│   │   │
+│   │   ├── routes/
+│   │   │   ├── auth.routes.js
+│   │   │   ├── job.routes.js
+│   │   │   └── resume.routes.js
+│   │   │
+│   │   ├── services/
+│   │   │   └── ai.service.js
+│   │   │
+│   │   └── tests/
+│   │
+│   │── app.js
+│   │── server.js
+│   │── .env
+│   │── package.json
+│   │── package-lock.json
+│   │── .gitignore
+│
+│── frontend/
+│   │── node_modules/
+│   │── public/
+│   │── screenshots/
+│   │── src/
+│   │   ├── api/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── routes/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   │── index.html
+│   │── package.json
+│   │── package-lock.json
+│   │── vite.config.js
+│   │── tailwind.config.js
+│   │── postcss.config.js
+│   │── eslint.config.js
+│   │── .env
+│   │── .gitignore
+│   │── README.md
+```
+
 </pre>
 
 <h2>⚙️ Environment Variables</h2>
